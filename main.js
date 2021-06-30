@@ -14,11 +14,15 @@ newTrial("zzz",
         .add(400, 0, getImage("right"))
         .print()
     ,
+    newTimer("interval", 3000)
+        .start()
+        .wait()
+    ,
     newText("<em>Select all other fep(s).</em>")
         .center()
         .print()
     ,
-    newImageGrid("as", "1.jpg 2.jpg 3.jpg 4.jpg 5.jpg 6.jpg 7.jpg 8.jpg 9.jpg 10.jpg")
+    newImageGrid("as", "1.jpg 2.jpg 3.jpg 4.jpg 5.png 6.png 7.jpg 8.jpg 9.jpg 10.jpg")
         .print()
     ,
     newButton("hello")

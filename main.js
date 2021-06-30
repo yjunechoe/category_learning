@@ -9,4 +9,7 @@ newTrial("zzz",
     newButton("hello")
         .print()
         .wait(getImageGrid("as").test.selectAny())
+    ,
+    getImageGrid("as")
+        .log()
 ) 

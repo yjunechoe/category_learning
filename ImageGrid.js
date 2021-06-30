@@ -2,15 +2,19 @@ window.PennController._AddElementType("ImageGrid", function(PennEngine) {
 
     var selection = [];
 
-    this.immediate = function(id, text){
-        if (text===undefined)
-            text = id;
+    this.immediate = function(id, imageString){
+        if (imageString===undefined) {
+            imageString = id;
+        }
         this.id = id;
-        this.initialText = text; // Keep track of this for reset
-        this.text = text; 
         // image properties
-        this.imageArray = typeof text == "string" ? text.split(' ') : text
+        this.imageArray = typeof imageString == "string" ? imageString.split(' ') : imageString
         console.log(this.imageArray)
+        // preload images
+        imageObj = new Image();
+        this.imageArray.forEach(function(value) {
+            imageObj.src = value
+        })
     };
 
     this.uponCreation = function(resolve){
@@ -21,7 +25,6 @@ window.PennController._AddElementType("ImageGrid", function(PennEngine) {
             })
         //
         console.log(this.imageArray)
-        console.log(this.text)
         // append images
         this.imageArray.forEach(function(value, index) {
             $(`<img class='image-cell' src='https://farm.pcibex.net/r/VMIMeV/${value}' width=100 height=100></img>`)
@@ -72,30 +75,20 @@ window.PennController._AddElementType("ImageGrid", function(PennEngine) {
         resolve();
     };
 
-    this.value = function(){                                            // Value is text
-        return this.text;
-    };
-
     this.end = function(){
         // log
         if (this.log){
-            if (!this.printTime)
-                PennEngine.controllers.running.save(this.type, this.id, "Options", this.imageArray.join(' '), "Never", "NULL");
-            else
-                PennEngine.controllers.running.save(this.type, this.id, "Selections", selection.join(' '), this.printTime, "NULL");
-        };
+            PennEngine.controllers.running.save(this.type, this.id, "Selections", selection.join(' '), this.printTime, "NULL")
+        }
     };
     
     this.test = {
-        text: function(text){ /* $AC$ Text PElement.test.text(value) Checks that the text of the element corresponds to the specified value $AC$ */
-            if (text instanceof RegExp)
-                return this.text.match(text);
-            else
-                return text==this.text;
-        },
-        // add test for any
+        // test for any
         selectAny: function() {
 			console.log(selection)
+			if (selection.length == 0) {
+			    alert("Please make a selection.")
+			}
             return selection.length > 0 
         }
     };

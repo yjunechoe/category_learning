@@ -1,8 +1,6 @@
 window.PennController._AddElementType("ImageGrid", function(PennEngine) {
 
     var selection = [];
-    
-    var imageObjArray = []
 
     this.immediate = function(id, text){
         if (text===undefined)
@@ -82,9 +80,9 @@ window.PennController._AddElementType("ImageGrid", function(PennEngine) {
         // log
         if (this.log){
             if (!this.printTime)
-                PennEngine.controllers.running.save(this.type, this.id, "Print", "NA", "Never", "NULL");
+                PennEngine.controllers.running.save(this.type, this.id, "Options", this.imageArray.join(' '), "Never", "NULL");
             else
-                PennEngine.controllers.running.save(this.type, this.id, "Print", "NA", this.printTime, "NULL");
+                PennEngine.controllers.running.save(this.type, this.id, "Selections", selection.join(' '), this.printTime, "NULL");
         };
     };
     

@@ -9,9 +9,13 @@ newTrial("zzz",
     newImage("right", "https://ukmadcat.com/wp-content/uploads/2019/04/sleepy-cat.jpg")
         .size(250, 250)
     ,
-    newCanvas("context", 600, 250)
+    newCanvas("context", 600, 300)
         .add(0, 0, getImage("left"))
-        .add(350, 0, getImage("right"))
+        .add(400, 0, getImage("right"))
+        .print()
+    ,
+    newText("Select all other fep(s).")
+        .center()
         .print()
     ,
     newImageGrid("as", "pc-cat.jpg pc-dog.jpg")

@@ -27,7 +27,7 @@ newTrial("zzz",
         .print()
         .hidden()
     ,
-    newTimer("interval", 3000)
+    newTimer("interval", 5000)
         .start()
         .wait()
     ,

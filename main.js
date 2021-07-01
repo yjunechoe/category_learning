@@ -15,8 +15,17 @@ newTrial("zzz",
     newCanvas("train", 600, 300)
         .add(0, 0, getImage("left"))
         .add(400, 0, getImage("right"))
-        .add(230, 50, getImage("point"))
+        .add(240, 50, getImage("point"))
         .print()
+    ,
+    newText("instruction", "<em>Select all other fep(s).</em>")
+        .center()
+        .print()
+        .hidden()
+    ,
+    newImageGrid("test", "1.jpg 2.jpg 3.jpg 4.jpg 5.png 6.png 7.jpg 8.jpg 9.jpg 10.jpg")
+        .print()
+        .hidden()
     ,
     newTimer("interval", 3000)
         .start()
@@ -25,12 +34,11 @@ newTrial("zzz",
     getCanvas("train")
         .hidden()
     ,
-    newText("<em>Select all other fep(s).</em>")
-        .center()
-        .print()
+    getText("instruction")
+        .visible()
     ,
-    newImageGrid("test", "1.jpg 2.jpg 3.jpg 4.jpg 5.png 6.png 7.jpg 8.jpg 9.jpg 10.jpg")
-        .print()
+    getImageGrid("test")
+        .visible()
     ,
     newButton("Continue")
         .print()

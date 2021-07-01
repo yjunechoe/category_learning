@@ -9,7 +9,7 @@ newTrial("zzz",
     newImage("right", "https://ukmadcat.com/wp-content/uploads/2019/04/sleepy-cat.jpg")
         .size(200, 200)
     ,
-    newCanvas("context", 600, 300)
+    newCanvas("train", 600, 300)
         .add(0, 0, getImage("left"))
         .add(400, 0, getImage("right"))
         .print()
@@ -18,17 +18,20 @@ newTrial("zzz",
         .start()
         .wait()
     ,
+    getCanvas("contetrainxt")
+        .hidden()
+    ,
     newText("<em>Select all other fep(s).</em>")
         .center()
         .print()
     ,
-    newImageGrid("as", "1.jpg 2.jpg 3.jpg 4.jpg 5.png 6.png 7.jpg 8.jpg 9.jpg 10.jpg")
+    newImageGrid("test", "1.jpg 2.jpg 3.jpg 4.jpg 5.png 6.png 7.jpg 8.jpg 9.jpg 10.jpg")
         .print()
     ,
     newButton("hello")
         .print()
-        .wait(getImageGrid("as").test.selectAny())
+        .wait(getImageGrid("test").test.selectAny())
     ,
-    getImageGrid("as")
+    getImageGrid("test")
         .log()
 ) 

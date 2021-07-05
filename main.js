@@ -27,14 +27,15 @@ newTrial("zzz",
         .print()
         .hidden()
     ,
-    newTimer("interval", 5000)
+    newTimer("interval", 3000)
         .start()
         .wait()
     ,
     getCanvas("train")
         .hidden()
     ,
-    getText("instruction")
+    
+        getText("instruction")
         .visible()
     ,
     getImageGrid("test")

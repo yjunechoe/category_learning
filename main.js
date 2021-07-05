@@ -5,7 +5,7 @@ Sequence("intro", "trial")
 newTrial("intro",
     newImage("teacher", "point-none.jpeg")
         .center()
-        .css("height", "200px")
+        .css({"height" : "200px", "margin" : "1em"})
         .print()
     ,
     newText("teacher-text", "This is Sally. Sally will teach you new words in her language.")
@@ -18,7 +18,7 @@ newTrial("intro",
         .css("margin", "1em")
         .print()
     ,
-    newButton("continue")
+    newButton("continue", "Continue")
         .print()
         .wait()
 )
@@ -61,7 +61,7 @@ newTrial("trial",
     getImageGrid("test")
         .visible()
     ,
-    newButton("continue")
+    newButton("continue", "Continue")
         .print()
         .wait(getImageGrid("test").test.selectAny())
     ,

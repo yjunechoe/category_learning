@@ -1,8 +1,23 @@
 PennController.ResetPrefix(null) // Keep here
 
-Sequence("zzz")
+Sequence("intro", "trial")
 
-newTrial("zzz",
+newTrial("intro",
+    newImage("teacher", "point-none.jpeg")
+        .center()
+        .size(200, 200)
+        .print()
+    ,
+    newText("teacher-text", "This is Sally. Sally will teach you new words in her language.")
+        .print()
+    ,
+    newText("continue-text", "When you are ready, click the button below to proceed.")
+    ,
+    newButton("continue")
+        .wait()
+)
+
+newTrial("trial",
     newImage("left", "https://i.pinimg.com/originals/2e/05/23/2e0523392db6f1c29c67c1faccbf9d65.jpg")
         .size(200, 200)
     ,
@@ -27,21 +42,20 @@ newTrial("zzz",
         .print()
         .hidden()
     ,
-    newTimer("interval", 3000)
+    newTimer("interval", 5000)
         .start()
         .wait()
     ,
     getCanvas("train")
         .hidden()
     ,
-    
-        getText("instruction")
+    getText("instruction")
         .visible()
     ,
     getImageGrid("test")
         .visible()
     ,
-    newButton("Continue")
+    newButton("continue")
         .print()
         .wait(getImageGrid("test").test.selectAny())
     ,

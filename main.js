@@ -82,7 +82,7 @@ newTrial("condition-contrast",
     newImage("point", "point-left.jpg")
         .size(100, 100)
     ,
-    newCanvas("train", 600, 300)
+    newCanvas("still-canvas", 600, 300)
         .add(240, 50, getImage("still"))
         .print()
     ,
@@ -99,9 +99,13 @@ newTrial("condition-contrast",
         .start()
         .wait()
     ,
-    getCanvas("train")
+    getCanvas("still-canvas")
+        .remove()
+    ,
+    newCanvas("train", 600, 300)
         .add(0, 0, getImage("left"))
         .add(240, 50, getImage("point"))
+        .print()
     ,
     newTimer(5000)
         .start()

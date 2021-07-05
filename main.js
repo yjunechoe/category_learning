@@ -5,15 +5,21 @@ Sequence("intro", "trial")
 newTrial("intro",
     newImage("teacher", "point-none.jpeg")
         .center()
-        .size(200, 200)
+        .css("height", "200px")
         .print()
     ,
     newText("teacher-text", "This is Sally. Sally will teach you new words in her language.")
+        .center()
+        .css("margin", "1em")
         .print()
     ,
     newText("continue-text", "When you are ready, click the button below to proceed.")
+        .center()
+        .css("margin", "1em")
+        .print()
     ,
     newButton("continue")
+        .print()
         .wait()
 )
 

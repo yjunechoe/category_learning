@@ -83,8 +83,7 @@ newTrial("condition-contrast",
         .size(100, 100)
     ,
     newCanvas("train", 600, 300)
-        .add(0, 0, getImage("left"))
-        .add(240, 50, getImage("point"))
+        .add(240, 50, getImage("still"))
         .print()
     ,
     newText("instruction", "<em>Select all other fep(s).</em>")
@@ -95,6 +94,14 @@ newTrial("condition-contrast",
     newImageGrid("test", "1.jpg 2.jpg 3.jpg 4.jpg 5.png 6.png 7.jpg 8.jpg 9.jpg 10.jpg")
         .print()
         .hidden()
+    ,
+    newTimer(1000)
+        .start()
+        .wait()
+    ,
+    getCanvas("train")
+        .add(0, 0, getImage("left"))
+        .add(240, 50, getImage("point"))
     ,
     newTimer(5000)
         .start()

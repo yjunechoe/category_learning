@@ -23,15 +23,12 @@ newTrial("intro",
         .wait()
 )
 
-newTrial("condition-single",
+newTrial("condition-contrast",
     newImage("left", "https://i.pinimg.com/originals/2e/05/23/2e0523392db6f1c29c67c1faccbf9d65.jpg")
         .size(200, 200)
     ,
     newImage("right", "https://ukmadcat.com/wp-content/uploads/2019/04/sleepy-cat.jpg")
         .size(200, 200)
-    ,
-    newImage("still", "point-none.jpeg")
-        .size(100, 100)
     ,
     newImage("point", "point-left.jpg")
         .size(100, 100)
@@ -51,7 +48,7 @@ newTrial("condition-single",
         .print()
         .hidden()
     ,
-    newTimer(5000)
+    newTimer("interval", 5000)
         .start()
         .wait()
     ,
@@ -72,12 +69,9 @@ newTrial("condition-single",
         .log()
 ) 
 
-newTrial("condition-contrast",
+newTrial("condition-single",
     newImage("left", "https://i.pinimg.com/originals/2e/05/23/2e0523392db6f1c29c67c1faccbf9d65.jpg")
         .size(200, 200)
-    ,
-    newImage("still", "point-none.jpeg")
-        .size(100, 100)
     ,
     newImage("point", "point-left.jpg")
         .size(100, 100)
@@ -96,7 +90,7 @@ newTrial("condition-contrast",
         .print()
         .hidden()
     ,
-    newTimer(5000)
+    newTimer("interval", 5000)
         .start()
         .wait()
     ,

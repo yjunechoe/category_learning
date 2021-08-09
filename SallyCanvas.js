@@ -19,8 +19,9 @@ window.PennController._AddElementType("SallyCanvas", function(PennEngine) {
         // define grid
         const canvas = d3.create("div")
           .attr("id", "canvas")
-          .style("position", "relative")
-          .style("width", "900px")
+          .style("position", "absolute")
+          .style("left", "-30%")
+          .style("width", "1000px")
           .style("height", "500px")
           .style("background-color", "ghostwhite")
           .style("border", "3px solid black")
@@ -31,10 +32,10 @@ window.PennController._AddElementType("SallyCanvas", function(PennEngine) {
           .attr("src", "https://i.imgur.com/p1FGkQt.png")
           .style("position", "absolute")
           .style("margin", "auto")
-          .style("top", "200px")
+          .style("top", "250px")
           .style("left", "0px")
           .style("right", "0px")
-          .style("height", "150px")
+          .style("height", "250px")
         //
         const speechBubble = canvas.append("div")
           .attr("id", "speech-bubble")
@@ -42,7 +43,7 @@ window.PennController._AddElementType("SallyCanvas", function(PennEngine) {
           .style("margin", "auto")
           .style("left", "0px")
           .style("right", "0px")
-          .style("top", "15%")
+          .style("top", "20%")
           .style("width", "40%")
           .style("height", "20%")
           .style("border-radius", "1rem")
@@ -56,7 +57,7 @@ window.PennController._AddElementType("SallyCanvas", function(PennEngine) {
           .style("padding", "1rem")
           .style("font-family", "Verdana")
         //
-        this.jQueryElement = canvas.node();
+        this.jQueryElement = $(canvas.node());
         resolve();
     };
 

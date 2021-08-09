@@ -11,9 +11,9 @@ window.PennController._AddElementType("ImageGrid", function(PennEngine) {
         this.imageArray = typeof imageString == "string" ? imageString.split(' ') : imageString
         console.log(this.imageArray)
         // preload images
-        imageObj = new Image();
         this.imageArray.forEach(function(value) {
-            imageObj.src = value
+            var imageObj = new Image();
+            imageObj.src = value;
         })
     };
 
@@ -40,7 +40,7 @@ window.PennController._AddElementType("ImageGrid", function(PennEngine) {
                             .css({
                                 "border" : "3px solid grey",
                                 "opacity" : 1
-                                
+
                             })
                             .data('clicked', false)
                         // update selection - if found, remove
@@ -50,14 +50,14 @@ window.PennController._AddElementType("ImageGrid", function(PennEngine) {
                         }
                         // print
                         console.log($(this).data('clicked'))
-                        console.log(selection)                        
+                        console.log(selection)
                     } else {
                         // change display
                         $(this)
                             .css({
                                 "border" : "3px solid red",
                                 "opacity" : 0.5
-                                
+
                             })
                             .data("clicked", true)
                         // update selection - if not found, add
@@ -81,7 +81,7 @@ window.PennController._AddElementType("ImageGrid", function(PennEngine) {
             PennEngine.controllers.running.save(this.type, this.id, "Selections", selection.join(' '), this.printTime, "NULL")
         }
     };
-    
+
     this.test = {
         // test for any
         selectAny: function() {
@@ -89,7 +89,7 @@ window.PennController._AddElementType("ImageGrid", function(PennEngine) {
 			if (selection.length === 0) {
 			    alert("Please make a selection.")
 			}
-            return selection.length > 0 
+            return selection.length > 0
         }
     };
 

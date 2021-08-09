@@ -3,12 +3,46 @@
     margin-left: calc(50vw - 500px); /* aligns the content area's left edge with the vertical center of the page */
 }
 
+/* TestGrid */
+
+#grid {
+  margin: 0 0 2rem 0;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, 150px);
+  grid-template-rows: repeat(5, 150px);
+  column-gap: 15px;
+  row-gap: 15px;
+}
+
+.cell {
+  position: relative;
+}
+
+.cell.cell-selected {
+  outline: 3px solid forestgreen;
+  opacity: 0.5;
+}
+
+.cell img {
+  max-width: 95%;
+  max-height: 95%;
+  position: absolute;
+  margin: auto;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+}
+
+/* Sally Canvas */
+
 #canvas {
   margin: 0 0 2rem 0;
   width: 1000px;
   height: 550px;
   background-color: ghostwhite;
-  border: 3px solid black
+  border: 3px solid black;
 }
 
 #sally {

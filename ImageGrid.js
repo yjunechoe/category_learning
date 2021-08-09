@@ -1,77 +1,66 @@
 window.PennController._AddElementType("ImageGrid", function(PennEngine) {
 
-    var selection = [];
+    var selection = new Set()
 
     this.immediate = function(id, imageString){
         if (imageString===undefined) {
-            imageString = id;
+          console.error("Must supply argument imageString to ImageGrid")
         }
         this.id = id;
         // image properties
-        this.imageArray = typeof imageString == "string" ? imageString.split(' ') : imageString
+        this.imageArray = typeof imageString == "string" ? JSON.parse(imageString) : imageString
         console.log(this.imageArray)
         // preload images
+        let imageObj
         this.imageArray.forEach(function(value) {
-            var imageObj = new Image();
-            imageObj.src = value;
+          imageObj = new Image();
+          imageObj.src = value;
         })
     };
 
     this.uponCreation = function(resolve){
         // define grid
-        var grid = $("<div>")
-            .css({
-                'justify-content' : 'center',
-            })
-        //
-        console.log(this.imageArray)
+        const grid = d3.create("div")
+          .attr("id", "grid")
+          .style("display", "grid")
+          .style("justify-content", "center")
+          .style("grid-template-columns", "repeat(4, 150px)")
+          .style("grid-template-rows", "repeat(5, 150px)")
+          .style("column-gap", "15px")
+          .style("row-gap", "15px")
         // append images
-        this.imageArray.forEach(function(value, index) {
-            $(`<img class='image-cell' src='https://farm.pcibex.net/r/VMIMeV/${value}' width=100 height=100></img>`)
-                .appendTo(grid)
-                .css({
-                    "border" : "3px solid grey",
-                    "margin" : "10px"
-                })
-                .click(function() {
-                    if ($(this).data('clicked')) {
-                        // change display
-                        $(this)
-                            .css({
-                                "border" : "3px solid grey",
-                                "opacity" : 1
-
-                            })
-                            .data('clicked', false)
-                        // update selection - if found, remove
-                        var idx = selection.indexOf(value)
-                        if (idx != -1) {
-                            selection.splice(idx, 1)
-                        }
-                        // print
-                        console.log($(this).data('clicked'))
-                        console.log(selection)
-                    } else {
-                        // change display
-                        $(this)
-                            .css({
-                                "border" : "3px solid red",
-                                "opacity" : 0.5
-
-                            })
-                            .data("clicked", true)
-                        // update selection - if not found, add
-                        if (selection.indexOf(value) == -1) {
-                            selection.push(value)
-                        }
-                        // print
-                        console.log($(this).data('clicked'))
-                        console.log(selection)
-                    }
-                })
-        })
+        const cells = grid.selectAll(".cell")
+          .data(new Array (20))
+          .join("div")
+            .classed("cell", true)
+            .attr("img-index", (d, i) => i)
+            .style("position", "relative")
+            .on("click", function() {
+              if (this.classList.contains("selected")) {
+                d3.select(this)
+                  .classed("selected", false)
+                  .style("outine", "none")
+                  .style("opacity", 1)
+                selection.delete(this.getAttribute("img-index"))
+              } else {
+                d3.select(this)
+                  .classed("selected", true)
+                  .style("outline", "3px solid forestgreen")
+                  .style("opacity", 0.5)
+                selection.add(this.getAttribute("img-index"))
+              }
+            })
+            .append("img")
+              .style("max-width", "95%")
+              .style("max-height", "95%")
+              .style("position", "absolute")
+              .style("left", "0px")
+              .style("right", "0px")
+              .style("top", "0px")
+              .style("bottom", "0px")
+              .style("margin", "auto")
         //
-        this.jQueryElement = grid;
+        this.jQueryElement = $(grid.node());
         resolve();
     };
 

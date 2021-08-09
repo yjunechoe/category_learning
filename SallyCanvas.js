@@ -37,7 +37,7 @@ window.PennController._AddElementType("SallyCanvas", function(PennEngine) {
           .style("height", "250px")
         //
         const speechBubble = canvas.append("div")
-          .attr("id", "speech-bubble")
+          .attr("id", "PennController-speech-bubble")
           .style("position", "absolute")
           .style("margin", "auto")
           .style("left", "0px")

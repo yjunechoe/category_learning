@@ -1,0 +1,19 @@
+.PennController {
+    width: 1000px !important; /* controls the witdth of the content area */
+    margin-left: calc(50vw - 500px); /* aligns the content area's left edge with the vertical center of the page */
+}
+
+#speech-bubble:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: inherit;
+    border: 2px solid #6ea6d5;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    transform: translate(-50%, 48%) rotate(45deg);
+    transform-origin: center center;
+}

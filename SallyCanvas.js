@@ -19,8 +19,7 @@ window.PennController._AddElementType("SallyCanvas", function(PennEngine) {
         // define grid
         const canvas = d3.create("div")
           .attr("id", "canvas")
-          .style("position", "absolute")
-          .style("left", "-30%")
+          .style("margin", "0 0 2rem 0")
           .style("width", "1000px")
           .style("height", "550px")
           .style("background-color", "ghostwhite")
@@ -32,7 +31,7 @@ window.PennController._AddElementType("SallyCanvas", function(PennEngine) {
           .attr("src", "https://i.imgur.com/p1FGkQt.png")
           .style("position", "absolute")
           .style("margin", "auto")
-          .style("top", "300px")
+          .style("top", "305px")
           .style("left", "0px")
           .style("right", "0px")
           .style("height", "250px")
@@ -52,7 +51,8 @@ window.PennController._AddElementType("SallyCanvas", function(PennEngine) {
         //
         const speechBubbleText = speechBubble.append("p")
           .attr("id", "speech")
-          .style("line-height", "140%")
+          .style("font-size", "20px")
+          .style("line-height", "150%")
           .style("margin", "0px")
           .style("padding", "1rem")
           .style("font-family", "Verdana")

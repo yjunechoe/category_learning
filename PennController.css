@@ -1,6 +1,6 @@
 .PennController {
-    width: 1000px !important; /* controls the witdth of the content area */
-    margin-left: calc(50vw - 500px); /* aligns the content area's left edge with the vertical center of the page */
+  width: 1000px !important; /* controls the witdth of the content area */
+  margin-left: calc(50vw - 500px); /* aligns the content area's left edge with the vertical center of the page */
 }
 
 /* TestGrid */

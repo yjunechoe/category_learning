@@ -64,13 +64,14 @@ window.PennController._AddElementType("ImageGrid", function(PennEngine) {
 
     this.test = {
         // test for any
-        selectAny: function() {
-			console.log(selection)
-			if (selection.length === 0) {
-			    alert("Please make a selection.")
-			}
-            return selection.length > 0
+      selectAny: function() {
+			  console.log(selection)
+  			if (selection.length === 0) {
+  			  alert("Please make a selection.")
+  			} else {
+          return selection.length > 0
         }
+      }
     };
 
 });

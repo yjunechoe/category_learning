@@ -2,7 +2,8 @@ PennController.ResetPrefix()
 
 newTrial(
     newSelectionGrid("test-phase")
-        .print(),
+        .print()
+        .log(),
     newButton("Continue")
         .print()
         .center()

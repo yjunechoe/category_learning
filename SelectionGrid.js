@@ -59,7 +59,7 @@ window.PennController._AddElementType("SelectionGrid", function(PennEngine) {
     this.end = function(){
         // log
         if (this.log){
-            PennEngine.controllers.running.save(this.type, this.id, "Selections", selection.join(' '), this.printTime, "NULL")
+            PennEngine.controllers.running.save(this.type, this.id, "Selections", Array.from(selection).join(";"), this.printTime, "NULL")
         }
     };
 

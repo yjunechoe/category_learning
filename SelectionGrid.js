@@ -9,7 +9,7 @@ window.PennController._AddElementType("SelectionGrid", function(PennEngine) {
         // image properties
         this.imgPathArray = typeof imageString == "string" ? JSON.parse(imageString) : imageString;
         
-        console.log(this.imgPathArray)
+        // console.log(this.imgPathArray)
         
         // preload images
         this.imgArray = this.imgPathArray.slice().map(d => {
@@ -18,7 +18,7 @@ window.PennController._AddElementType("SelectionGrid", function(PennEngine) {
             return imgObj;
         })
         
-        console.log(this.imgArray)
+        // console.log(this.imgArray)
 
     }
         
@@ -30,7 +30,6 @@ window.PennController._AddElementType("SelectionGrid", function(PennEngine) {
         //
         this.jQueryElement = $("<div>")
           .attr("class", "PennController-SelectionGrid");
-        resolve();
         
         this.imgArray.forEach(img => {
             let imgfile = img.src.match("[a-z0-9\-_]+\.jpg")[0]
@@ -53,6 +52,8 @@ window.PennController._AddElementType("SelectionGrid", function(PennEngine) {
                         })
                 )
         })
+        
+        resolve();
 
     };
     
@@ -72,7 +73,20 @@ window.PennController._AddElementType("SelectionGrid", function(PennEngine) {
             return selection.size > 0
         }
     };
-
+    
+    // display none so imgs load during test but doesn't takeup space
+    this.actions = {
+        hide: function(resolve){
+            console.log("SelectionGrid hidden")
+            this.jQueryElement.css("display", "none")
+            resolve();
+        },
+        show: function(resolve){
+            console.log("SelectionGrid shown")
+            this.jQueryElement.css("display", "grid")
+            resolve();
+        }
+    }
 
 
 })
